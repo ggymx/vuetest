@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <!-- <HelloWorld :msg="msg" /> -->
+    <HelloWorld :msg="msg" />
     <button id="test">测试</button>
   </div>
 </template>

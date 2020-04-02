@@ -121,18 +121,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+h1{
+  font-size: 38px;
+}
 h3 {
+  font-size: 36px;
   margin: 40PX 0 0;
+}
+p{
+  font-size:30px;
 }
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 10px 0;
 }
 li {
   display: inline-block;
-  margin: 0 10PX;
+  margin: 0 10px;
 }
 a {
   color: #42b983;
+  font-size: 30px;
 }
 </style>
