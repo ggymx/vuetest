@@ -6,7 +6,7 @@ const log={
     err:(err)=>{
         console.log(`出现错误：!!!`,err);
     },
-    messageBox:(info)=>{
+    alert:(info)=>{
         alert(info);
     }
 };

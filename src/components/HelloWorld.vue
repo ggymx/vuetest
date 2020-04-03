@@ -51,7 +51,7 @@
         >
       </li>
     </ul>
-    <h3>Essential Links</h3>
+    <!-- <h3>Essential Links</h3>
     <ul>
       <li>
         <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
@@ -74,8 +74,8 @@
       <li>
         <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
       </li>
-    </ul>
-    <h3>Ecosystem</h3>
+    </ul> -->
+    <!-- <h3>Ecosystem</h3>
     <ul>
       <li>
         <a href="https://router.vuejs.org" target="_blank" rel="noopener"
@@ -106,7 +106,7 @@
           >awesome-vue</a
         >
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 

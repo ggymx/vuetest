@@ -28,8 +28,8 @@
     },
     methods:{
       login(){
-        console.log('点击登录');
-        ajax.get('/api/test',{},(res)=>{
+        console.log('点击登录',process.env.VUE_APP_URL);
+        ajax.get('/api/champion/test',{flag:123456},(res)=>{
           log.info(res);
         })
       }
