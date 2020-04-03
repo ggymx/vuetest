@@ -1,9 +1,19 @@
-let baseURL = process.env.VUE_APP_URL;
+const baseURL = process.env.VUE_APP_URL;
+const version = process.env.VUE_APP_VERSION;
+// const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 console.log('url：' + process.env.VUE_APP_URL);
 
 module.exports = {
+  // baseUrl: './' vue4.x被废弃 改为publicPath(baseUrl是3.x属性)
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  assetsDir: 'static', //规定资源文件css,js,img的输出目录
+  productionSourceMap: false, //打包时生成js映射文件（bug定位时用），默认为true
   //关闭eslint代码规则约束
   lintOnSave: false,
+  //输出打包文件目录（区分开发环境和生产环境）
+  outputDir: process.env.NODE_ENV === "development" ? "devdist" : "dist",
   //修改项目端口号
   devServer: {
     port: 9001
@@ -43,8 +53,36 @@ module.exports = {
           }
         }
       }
-    }
-  }
+    },
+    output: {
+      // 输出重构  打包编译后的 文件名称  【模块名称.版本号】
+      filename: `js/[name].${version}.js`,
+      chunkFilename: `js/[name].${version}.js`
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        // 修改打包后css文件名
+        filename: `css/[name].${version}.css`,
+        chunkFilename: `css/[name].${version}.css`
+      })
+    ]
+  },
+  // 修改打包后img文件名
+  chainWebpack: config => {
+    config.module
+      .rule("images")
+      .use("url-loader")
+      .tap(options => {
+        options.name = `img/[name].${version}.[ext]`;
+        options.fallback = {
+          loader: "file-loader",
+          options: {
+            name: `img/[name].${version}.[ext]`
+          }
+        };
+        return options;
+      });
+  },
   //   chainWebpack: config => { //修改webpack打包的入口文件。需要在根目录建两个对应入口js文件
   //     config.when(process.env.NODE_ENV === 'production', config => {
   //       config.entry('app').clear().add('./src/main-prod.js') //生产环境
