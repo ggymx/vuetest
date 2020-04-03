@@ -1,4 +1,5 @@
 let target = process.env.VUE_APP_URL;
+console.log('url：' + process.env.VUE_APP_URL);
 
 module.exports = {
   //关闭eslint代码规则约束
@@ -26,23 +27,24 @@ module.exports = {
         ]
       }
     }
+  },
+  // publicPath: './', //解决打包上线时，文件路径变为绝对路径，显示空白
+  configureWebpack: { //重写webpack配置
+    devServer: {
+      proxy: { //跨域代理 (使用/api代理到target：如http://39.97.33.178)
+        '/api': {
+          target: target, //baseURL（后台接口域名）
+          //是否开启跨域（//开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题）
+          changeOrigin: true,
+          ws: true, //如果要代理 websockets，配置这个参数,
+          secure: false, // 如果是https接口，需要配置这个参数
+          pathRewrite: { //重定向
+            '^/api': '' //让路径以/api开头的字段为空
+          }
+        }
+      }
+    }
   }
-  //   publicPath: './', //解决打包上线时，文件路径变为绝对路径，显示空白
-  //   configureWebpack: { //重写webpack配置
-  //     devServer: {
-  //       proxy: { //跨域代理 (使用/api代理到target：如http://39.97.33.178)
-  //         '/api': {
-  //           target: target, //baseURL（后台接口域名）
-  //           changeOrigin: true, //是否开启跨域（//开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题）
-  //           ws: true,        //如果要代理 websockets，配置这个参数,
-  //           secure: false,  // 如果是https接口，需要配置这个参数
-  //           pathRewrite: {     //重定向
-  //             '^/api': '' //让路径以/api开头的字段为空
-  //           }
-  //         }
-  //       }
-  //     }
-  //   },
   //   chainWebpack: config => { //修改webpack打包的入口文件。需要在根目录建两个对应入口js文件
   //     config.when(process.env.NODE_ENV === 'production', config => {
   //       config.entry('app').clear().add('./src/main-prod.js') //生产环境
