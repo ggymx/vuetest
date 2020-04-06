@@ -5,7 +5,7 @@ import axios from 'axios';
 const http = axios.create({
   //   baseURL: 'http://localhost:8080/',
     withCredentials: true, //设置跨域时携带cookie
-    timeout: 5000,  //请求超时时间
+    timeout: 8000,  //请求超时时间
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
   },

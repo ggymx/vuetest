@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld :msg="msg" />
-    <button id="test" @click="login()">测试</button>
+    <el-button type="info" id="test" @click="login()">测试</el-button>
   </div>
 </template>
 
