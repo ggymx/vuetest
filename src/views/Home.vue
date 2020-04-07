@@ -61,10 +61,12 @@
     top: 20px;
     right: 230px;
   }
-
   #test2 {
     position: absolute;
     top: 20px;
     right: 120px;
+  }
+  .el-calendar{
+    font-size: 30px;;
   }
 </style>

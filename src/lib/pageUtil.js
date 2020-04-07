@@ -5,7 +5,7 @@ let page = {
     var docEl = doc.documentElement,
       resizeEvt = 'orientationchange' in window ? 'orientationchange' :
       'resize'; //orientationchange设备旋转 resize调整浏览器窗口的大小
-    recalc = function () {
+    var recalc = function () {
       var clientWidth = docEl.clientWidth; //设备
       if (!clientWidth) return;
       docEl.style.fontSize = 100 * (clientWidth / 1280) + 'px'; //换算 

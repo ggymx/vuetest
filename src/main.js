@@ -6,7 +6,7 @@ import './lib/pageUtil';
 // import ElementUI from 'element-ui'; 
 // import 'element-ui/lib/theme-chalk/index.css';
 // import ajax from './lib/ajax';
-import { Button, Select, MessageBox, Message,Calendar} from 'element-ui';
+import { Button, Select, MessageBox, Message, Calendar } from 'element-ui';
 // import lang from 'element-ui/lib/locale/lang/en';
 // import locale from 'element-ui/lib/locale';
 
@@ -23,7 +23,7 @@ Vue.component(Button.name, Button);
 Vue.component(Select.name, Select);
 Vue.component(Message.name, Message);
 Vue.component(MessageBox.name, MessageBox);
-Vue.component(Calendar.name,Calendar);
+Vue.component(Calendar.name, Calendar);
 Vue.prototype.$message = Message;
 // //设置语言
 // locale.use(lang);
