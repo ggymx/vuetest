@@ -2,8 +2,11 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld :msg="msg" /> -->
-    <el-button type="success" id="test" @click="login()">{{$t("login")}}</el-button>
-    <el-button type="info" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
+    <div style="width:100%;height:80px;background-color:#3b76b9">
+      <el-button type="primary" id="test" @click="login()">{{$t("login")}}</el-button>
+      <el-button type="primary" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
+    </div>
+
     <el-select v-model="value" placeholder="更换风格主题">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
       </el-option>
