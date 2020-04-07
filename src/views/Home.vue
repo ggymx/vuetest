@@ -1,9 +1,14 @@
 <template>
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <HelloWorld :msg="msg" />
+    <!-- <HelloWorld :msg="msg" /> -->
     <el-button type="success" id="test" @click="login()">{{$t("login")}}</el-button>
     <el-button type="info" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
+    <el-select v-model="value" placeholder="更换风格主题">
+      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+      </el-option>
+    </el-select>
+
     <el-calendar>
     </el-calendar>
   </div>
@@ -23,7 +28,21 @@
     data: function () {
       return {
         msg: process.env.VUE_APP_TITLE,
-        lang: localStorage.getItem('locale')
+        lang: localStorage.getItem('locale'),
+        options: [{
+          value: 'green',
+          label: '墨绿'
+        }, {
+          value: 'blue',
+          label: '天蓝'
+        }, {
+          value: 'red',
+          label: '绯红'
+        }, {
+          value: 'pink',
+          label: '幻紫'
+        }],
+        value: ''
       }
     },
     mounted() {
@@ -61,12 +80,15 @@
     top: 20px;
     right: 230px;
   }
+
   #test2 {
     position: absolute;
     top: 20px;
     right: 120px;
   }
-  .el-calendar{
-    font-size: 30px;;
+
+  .el-calendar {
+    font-size: 30px;
+    ;
   }
 </style>
