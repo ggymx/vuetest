@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld :msg="msg" />
-    <el-button type="info" id="test" @click="login()">测试</el-button>
+    <el-button type="success" id="test" @click="login()">测试</el-button>
   </div>
 </template>
 
@@ -37,10 +37,10 @@
   };
 </script>
 <style lang="less" scoped>
-  #test{
-    width:200px;
-    height:100px;
-    padding: 0;
-    border: none;
-  }
+  // #test{
+  //   width:200px;
+  //   height:100px;
+  //   padding: 0;
+  //   border: none;
+  // }
 </style>
