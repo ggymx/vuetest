@@ -19,7 +19,7 @@ module.exports = {
     port: 9001
   },
   css: {
-    extract: false,
+    extract: false,  //不合并编译的css
     loaderOptions: {
       postcss: {
         plugins: [
