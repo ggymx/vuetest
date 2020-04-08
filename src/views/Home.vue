@@ -72,7 +72,8 @@
         this.$message({
           message: this.lang == 'zh' ? '切换为中文' : 'Switch to English!',
           type: 'success',
-          showClose: true
+          showClose: true,
+          customClass:'message-skin-success'
         });
       },
       switchSkin(template) {
