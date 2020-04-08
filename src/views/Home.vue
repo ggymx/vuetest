@@ -2,16 +2,16 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld :msg="msg" /> -->
-    <div style="width:100%;height:80px;background-color:#3b76b9">
+    <div class="header">
       <el-button type="primary" id="test" @click="login()">{{$t("login")}}</el-button>
       <el-button type="primary" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
     </div>
 
-    <el-select v-model="value" placeholder="更换风格主题">
+    <el-select v-model="template" placeholder="更换风格主题" @change="switchSkin">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
       </el-option>
     </el-select>
-
+    <span>{{$store.state.count}}</span>
     <el-calendar>
     </el-calendar>
   </div>
@@ -23,6 +23,7 @@
   import cookies from 'js-cookie';
   import ajax from '../lib/ajax';
   import log from '../lib/log';
+  import skin from '../lib/skin';
   export default {
     name: "Home",
     components: {
@@ -32,21 +33,20 @@
       return {
         msg: process.env.VUE_APP_TITLE,
         lang: localStorage.getItem('locale'),
-        options: [{
-          value: 'green',
-          label: '墨绿'
-        }, {
-          value: 'blue',
+        options: [
+        {
+          value: '001',
           label: '天蓝'
-        }, {
-          value: 'red',
-          label: '绯红'
-        }, {
-          value: 'pink',
-          label: '幻紫'
+        },
+        {
+          value: '002',
+          label: '墨绿'
         }],
-        value: ''
+        template: ''
       }
+    },
+    created() {
+      skin.getCss();
     },
     mounted() {
       console.log('挂载------');
@@ -73,6 +73,12 @@
           message: this.lang == 'zh' ? '切换为中文' : 'Switch to English!',
           type: 'success'
         });
+      },
+      switchSkin(template) {
+        log.info(template);
+        skin.setCss(template);
+        // skin.getCss();
+        // this._setCss(template);
       }
     }
   };
@@ -93,5 +99,11 @@
   .el-calendar {
     font-size: 30px;
     ;
+  }
+
+  .header {
+    width: 100%;
+    height: 80px;
+    // background-color: #3b76b9
   }
 </style>
