@@ -71,7 +71,8 @@
         this.$i18n.locale = localStorage.getItem('locale');
         this.$message({
           message: this.lang == 'zh' ? '切换为中文' : 'Switch to English!',
-          type: 'success'
+          type: 'success',
+          showClose: true
         });
       },
       switchSkin(template) {
