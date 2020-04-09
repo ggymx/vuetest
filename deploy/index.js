@@ -17,8 +17,9 @@ scpClient.scp(
   function (err) {
     spinner.stop();
     if (err) {
-      console.log(chalk.red('发布失败.\n'));
-      throw err;
+      // console.log(chalk.red('发布失败.\n'));
+      console.log(chalk.red('发布失败.\n')+err);
+      // throw err;
     } else {
     //   console.log(chalk.green('Success! 成功发布到' + (process.env.NODE_ENV === 'prod' ? '生产' : '测试') + '服务器! \n'));
       console.log(chalk.green('Success! 成功发布到' + (process.env.NODE_ENV === 'prod' ? '生产' : '测试') + '服务器! \n'));

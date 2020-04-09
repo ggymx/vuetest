@@ -58,11 +58,14 @@ const SERVER_LIST = [
     id: 1,
     name: 'B-测试环境',
     // domain: 'test.xxx.com',
+    domain: 'http',
     // host: 'XX.XX.XX.XX',
-    host: 'http://127.0.0.1',
+    host: '127.0.0.1',
     port: 6066,
     // username: 'root',
     // password: 'xxxxxxx',
+    username: 'pc',
+    password: 'gegan',
     // path: '/usr/local/www/xxx_program_test/',
     path: '/app/dist'
   }

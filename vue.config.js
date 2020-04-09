@@ -46,7 +46,7 @@ module.exports = {
         '/api': {
           target: baseURL, //baseURL（后台接口域名）
           //是否开启跨域（//开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题）
-          // changeOrigin: true,
+          changeOrigin: true,//默认是true（为false则target不生效）
           ws: true, //如果要代理 websockets，配置这个参数,
           secure: false, // 如果是https接口，需要配置这个参数,
           pathRewrite: { //重定向
