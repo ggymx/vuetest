@@ -8,7 +8,9 @@
     "build": "vue-cli-service build",
     "dev-build": "vue-cli-service build --mode development",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy:dev": "npm run build && cross-env NODE_ENV=dev node ./deploy",
+    "deploy:prod": "npm run build && cross-env NODE_ENV=prod node ./deploy"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -32,6 +34,7 @@
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
     "babel-preset-env": "^7.0.0-beta.3",
+    "cross-env": "^7.0.2",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.1.2",
@@ -39,6 +42,7 @@
     "less-loader": "^5.0.0",
     "postcss-plugin-px2rem": "^0.8.1",
     "prettier": "^1.19.1",
+    "scp2": "^0.5.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
