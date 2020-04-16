@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
+    <div class="logo"></div>
     <!-- <HelloWorld :msg="msg" /> -->
     <div class="header">
       <el-button type="primary" id="test" @click="login()">{{$t("login")}}</el-button>
