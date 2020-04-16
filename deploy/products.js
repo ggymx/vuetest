@@ -47,12 +47,12 @@ const SERVER_LIST = [
   {
     id: 0,
     name: 'A-生产环境',
-    domain: 'www.prod.com',// 域名
-    host: '46.106.38.24',// ip
-    port: 22,// 端口
-    username: 'root', // 登录服务器的账号
-    password: 'root',// 登录服务器的账号
-    path: '/mdm/nginx/dist'// 发布至静态服务器的项目路径
+    // domain: 'www.prod.com',// 域名
+    host: '127.0.0.1',// ip
+    port: 8080,// 端口
+    username: 'pc', // 登录服务器的账号
+    password: 'gegan',// 登录服务器的账号
+    path: '/vuetest/dist'// 发布至静态服务器的项目路径
   },
   {
     id: 1,
