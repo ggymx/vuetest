@@ -2,6 +2,8 @@ import axios from 'axios';
 
 // let token=sessionStorage.getItem('token')||'adefaultstring8888';
 // axios.defaults.headers.common['Authorization'] = token;
+//配置cors跨域时前端携带cookie
+// axios.defaults.withCredentials = true;
 const http = axios.create({
   //   baseURL: 'http://localhost:8080/',
     withCredentials: true, //设置跨域时携带cookie

@@ -56,9 +56,14 @@
     methods: {
       login() {
         console.log('点击登录', process.env.VUE_APP_URL);
+        // 代理跨域
         ajax.get('api/champion/test', { flag: 123456 }, (res) => {
           log.info(res);
         })
+        //CORS跨域
+        // ajax.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
+        //   log.info(res);
+        // })
       },
       switchLang() {
         log.info('切换语言');
