@@ -22,9 +22,9 @@
   // @ is an alias to /src
   import HelloWorld from "@/components/HelloWorld.vue";
   import cookies from 'js-cookie';
-  import ajax from '../lib/ajax';
-  import log from '../lib/log';
-  import skin from '../lib/skin';
+  import ajax from '../lib/request';
+  import log from '../api/log';
+  import skin from '../api/skin';
   export default {
     name: "Home",
     components: {
@@ -55,15 +55,17 @@
     },
     methods: {
       login() {
+        $("#test").css({'background':'red'})
+        $('#test').addClass('animated bounce');
         console.log('点击登录', process.env.VUE_APP_URL);
         // 代理跨域
-        ajax.get('api/champion/test', { flag: 123456 }, (res) => {
-          log.info(res);
-        })
-        //CORS跨域
-        // ajax.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
+        // ajax.get('api/champion/test', { flag: 123456 }, (res) => {
         //   log.info(res);
         // })
+        //CORS跨域
+        ajax.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
+          log.info(res);
+        })
       },
       switchLang() {
         log.info('切换语言');
