@@ -11,9 +11,11 @@ import ajax from './lib/request';
 
 import i18n from './config/lang/i18n';//国际化
 import $ from 'jquery';
+import _ from 'lodash';
 
 Vue.config.productionTip = false;
 Vue.prototype.$ = $;
+Vue.prototype._ = _;
 //引入element-ui
 // Vue.use(ElementUI);
 

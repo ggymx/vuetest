@@ -58,7 +58,7 @@
         $("#test").css({'background':'red'})
         $('#test').addClass('animated bounce');
         console.log('点击登录', process.env.VUE_APP_URL);
-        log.info(this.$axios);
+        log.info(this._.fill);
         // 代理跨域
         // this.$axios.get('api/champion/test', { flag: 123456 }, (res) => {
         //   log.info(res);
