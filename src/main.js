@@ -7,7 +7,7 @@ import './config/elementUI';
 import './css/animate.min.css';
 // import ElementUI from 'element-ui'; 
 // import 'element-ui/lib/theme-chalk/index.css';
-// import ajax from './lib/ajax';
+import ajax from './lib/request';
 
 import i18n from './config/lang/i18n';//国际化
 import $ from 'jquery';
@@ -17,7 +17,7 @@ Vue.prototype.$ = $;
 //引入element-ui
 // Vue.use(ElementUI);
 
-// Vue.prototype.ajax=ajax;
+Vue.prototype.$axios = ajax;
 
 new Vue({
   router,

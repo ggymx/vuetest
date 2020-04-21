@@ -58,12 +58,13 @@
         $("#test").css({'background':'red'})
         $('#test').addClass('animated bounce');
         console.log('点击登录', process.env.VUE_APP_URL);
+        log.info(this.$axios);
         // 代理跨域
-        // ajax.get('api/champion/test', { flag: 123456 }, (res) => {
+        // this.$axios.get('api/champion/test', { flag: 123456 }, (res) => {
         //   log.info(res);
         // })
         //CORS跨域
-        ajax.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
+        this.$axios.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
           log.info(res);
         })
       },
@@ -71,7 +72,6 @@
         log.info('切换语言');
         if (this.lang == 'zh') {
           this.lang = 'en';
-
         } else {
           this.lang = 'zh';
         }
@@ -81,7 +81,10 @@
           message: this.lang == 'zh' ? '切换为中文' : 'Switch to English!',
           type: 'success',
           showClose: true,
-          customClass:'message-skin-success'
+          customClass:'message-skin-success',
+          onClose:()=>{
+              location.reload();
+          }
         });
       },
       switchSkin(template) {
