@@ -64,8 +64,11 @@
         //   log.info(res);
         // })
         //CORS跨域
-        this.$axios.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
-          log.info(res);
+        // this.$axios.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
+        //   log.info(res);
+        // })
+        this.$api.login().then(res=>{}).catch(err=>{
+          log.err(err);
         })
       },
       switchLang() {

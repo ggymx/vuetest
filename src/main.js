@@ -7,19 +7,21 @@ import './config/ui/elementUI';
 import './styles/animate.min.css';
 // import ElementUI from 'element-ui'; 
 // import 'element-ui/lib/theme-chalk/index.css';
-import ajax from './api/request';
+// import ajax from './api/request';
+import api from './api/index'
 
 import i18n from './lang/i18n';//国际化
 import $ from 'jquery';
 import _ from 'lodash';
-
+import '../mock/index';
 Vue.config.productionTip = false;
 Vue.prototype.$ = $;
 Vue.prototype._ = _;
 //引入element-ui
 // Vue.use(ElementUI);
 
-Vue.prototype.$axios = ajax;
+// Vue.prototype.$axios = ajax;
+Vue.use(api);
 
 new Vue({
   router,

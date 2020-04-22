@@ -1,3 +1,4 @@
+//请求接口汇总模块，聚合模块 API。
 import axios from './axios'
 
 /* 

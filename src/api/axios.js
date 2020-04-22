@@ -1,3 +1,4 @@
+//二次封装 axios 模块，包含拦截器等信息。
 import axios from 'axios';
 import config from './config';
 import qs from 'qs';
@@ -28,7 +29,7 @@ export default function $axios(options) {
           config.headers.accessToken = token
         } else {
           // 重定向到登录页面
-          router.push('/login')
+        //   router.push('/login')
         }
         // 3. 根据请求方法，序列化传来的参数，根据后端需求是否序列化
         if (config.method === 'post') {
