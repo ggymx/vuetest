@@ -6,6 +6,7 @@
     <div class="header">
       <el-button type="primary" id="test" @click="login()">{{$t("login")}}</el-button>
       <el-button type="primary" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
+      <el-button type="danger">危险按钮</el-button>
     </div>
 
     <el-select v-model="template" placeholder="更换风格主题" @change="switchSkin">
