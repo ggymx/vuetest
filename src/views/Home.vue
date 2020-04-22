@@ -1,10 +1,12 @@
 <template>
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <!-- <HelloWorld :msg="msg" /> -->
+    <div class="logo"></div>
+    <HelloWorld :msg="msg" />
     <div class="header">
       <el-button type="primary" id="test" @click="login()">{{$t("login")}}</el-button>
       <el-button type="primary" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
+      <el-button type="danger">危险按钮</el-button>
     </div>
 
     <el-select v-model="template" placeholder="更换风格主题" @change="switchSkin">
@@ -12,22 +14,26 @@
       </el-option>
     </el-select>
     <span>{{$store.state.count}}</span>
+    <theme-picker></theme-picker>
     <el-calendar>
     </el-calendar>
+    
   </div>
 </template>
 
 <script>
   // @ is an alias to /src
   import HelloWorld from "@/components/HelloWorld.vue";
+  import ThemePicker from "@/components/ThemePicker.vue"
   import cookies from 'js-cookie';
-  import ajax from '../lib/ajax';
-  import log from '../lib/log';
-  import skin from '../lib/skin';
+  // import ajax from '../lib/request';
+  import log from '../utils/log';
+  // import skin from '../utils/skin';
   export default {
     name: "Home",
     components: {
-      HelloWorld
+      HelloWorld,
+      ThemePicker
     },
     data: function () {
       return {
@@ -46,7 +52,7 @@
       }
     },
     created() {
-      skin.getCss();
+      // skin.getCss();
     },
     mounted() {
       console.log('挂载------');
@@ -54,16 +60,26 @@
     },
     methods: {
       login() {
+        $("#test").css({'background':'red'})
+        $('#test').addClass('animated bounce');
         console.log('点击登录', process.env.VUE_APP_URL);
-        ajax.get('/api/champion/test', { flag: 123456 }, (res) => {
-          log.info(res);
+        log.info(this._.fill);
+        // 代理跨域
+        // this.$axios.get('api/champion/test', { flag: 123456 }, (res) => {
+        //   log.info(res);
+        // })
+        //CORS跨域
+        // this.$axios.get(process.env.VUE_APP_URL+'/champion/test', { flag: 123456 }, (res) => {
+        //   log.info(res);
+        // })
+        this.$api.login().then(res=>{}).catch(err=>{
+          log.err(err);
         })
       },
       switchLang() {
         log.info('切换语言');
         if (this.lang == 'zh') {
           this.lang = 'en';
-
         } else {
           this.lang = 'zh';
         }
@@ -73,12 +89,15 @@
           message: this.lang == 'zh' ? '切换为中文' : 'Switch to English!',
           type: 'success',
           showClose: true,
-          customClass:'message-skin-success'
+          customClass:'message-skin-success',
+          onClose:()=>{
+              location.reload();
+          }
         });
       },
       switchSkin(template) {
         log.info(template);
-        skin.setCss(template);
+        // skin.setCss(template);
         // skin.getCss();
         // this._setCss(template);
       }

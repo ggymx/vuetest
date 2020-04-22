@@ -1,3 +1,4 @@
+//自适应设置
 console.log('动态设置rem和px比例');
 let page = {
   //设置html字号
