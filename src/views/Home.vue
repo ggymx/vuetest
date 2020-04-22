@@ -2,7 +2,7 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <div class="logo"></div>
-    <!-- <HelloWorld :msg="msg" /> -->
+    <HelloWorld :msg="msg" />
     <div class="header">
       <el-button type="primary" id="test" @click="login()">{{$t("login")}}</el-button>
       <el-button type="primary" id="test2" @click="switchLang()">{{$t("language.name")}}</el-button>
@@ -13,22 +13,26 @@
       </el-option>
     </el-select>
     <span>{{$store.state.count}}</span>
+    <theme-picker></theme-picker>
     <el-calendar>
     </el-calendar>
+    
   </div>
 </template>
 
 <script>
   // @ is an alias to /src
   import HelloWorld from "@/components/HelloWorld.vue";
+  import ThemePicker from "@/components/ThemePicker.vue"
   import cookies from 'js-cookie';
   // import ajax from '../lib/request';
   import log from '../utils/log';
-  import skin from '../utils/skin';
+  // import skin from '../utils/skin';
   export default {
     name: "Home",
     components: {
-      HelloWorld
+      HelloWorld,
+      ThemePicker
     },
     data: function () {
       return {
@@ -47,7 +51,7 @@
       }
     },
     created() {
-      skin.getCss();
+      // skin.getCss();
     },
     mounted() {
       console.log('挂载------');
@@ -92,7 +96,7 @@
       },
       switchSkin(template) {
         log.info(template);
-        skin.setCss(template);
+        // skin.setCss(template);
         // skin.getCss();
         // this._setCss(template);
       }

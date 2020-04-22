@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import './utils/pageUtil';
 import './config/ui/elementUI';
+import './theme/index.css'
 import './styles/animate.min.css';
 // import ElementUI from 'element-ui'; 
 // import 'element-ui/lib/theme-chalk/index.css';

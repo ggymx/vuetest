@@ -1,8 +1,9 @@
+const baseURL = process.env.VUE_APP_URL;
 //axios 默认配置，包含基础路径等信息。
 export default {
     method: 'get',
     // 基础url前缀
-    baseURL: 'http://localhost:8080/',
+    baseURL: baseURL,
     // 请求头信息
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
