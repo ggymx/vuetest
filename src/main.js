@@ -2,14 +2,14 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import './api/pageUtil';
-import './config/elementUI';
-import './css/animate.min.css';
+import './utils/pageUtil';
+import './config/ui/elementUI';
+import './styles/animate.min.css';
 // import ElementUI from 'element-ui'; 
 // import 'element-ui/lib/theme-chalk/index.css';
-import ajax from './lib/request';
+import ajax from './api/request';
 
-import i18n from './config/lang/i18n';//国际化
+import i18n from './lang/i18n';//国际化
 import $ from 'jquery';
 import _ from 'lodash';
 

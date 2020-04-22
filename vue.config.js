@@ -13,7 +13,7 @@ module.exports = {
   //关闭eslint代码规则约束
   lintOnSave: false,
   //输出打包文件目录（区分开发环境和生产环境）
-  outputDir: process.env.NODE_ENV === "development" ? "devdist" : "dist",
+  outputDir: process.env.NODE_ENV === "production" ? "dist": "devdist",
   //修改项目端口号
   devServer: {
     port: 5001

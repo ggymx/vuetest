@@ -22,9 +22,9 @@
   // @ is an alias to /src
   import HelloWorld from "@/components/HelloWorld.vue";
   import cookies from 'js-cookie';
-  import ajax from '../lib/request';
-  import log from '../api/log';
-  import skin from '../api/skin';
+  // import ajax from '../lib/request';
+  import log from '../utils/log';
+  import skin from '../utils/skin';
   export default {
     name: "Home",
     components: {

@@ -1,4 +1,4 @@
-//element组件懒加载
+//element组件懒加载配置
 import Vue from "vue";
 import { Button, Select, MessageBox, Message, Calendar, Option } from 'element-ui';
 //按需引入element-ui
