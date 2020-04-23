@@ -17,8 +17,8 @@
     //需要npm install babel-plugin-component -D//官网：http://element-cn.eleme.io/#/zh-CN/component/quickstart
     ["component",{
       "libraryName": "element-ui", //按需引用element-ui插件
-      //"styleLibraryName": "theme-default"   //按需引用element-ui主题
-      "styleLibraryName": "theme-chalk"
+      "styleLibraryName": "theme-chalk"  //按需引用element-ui主题
+      // "styleLibraryName": "theme-default"
     }]
   ], 
   // 下面这段是在特定的环境中所执行的转码规则，当环境变量是下面的test就会覆盖上面的设置
