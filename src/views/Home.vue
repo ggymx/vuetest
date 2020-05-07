@@ -9,15 +9,17 @@
       <el-button type="danger">危险按钮</el-button>
     </div>
 
-    <el-select v-model="template" placeholder="更换风格主题" @change="switchSkin">
+    <!-- <el-select v-model="template" placeholder="更换风格主题" @change="switchSkin">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
       </el-option>
-    </el-select>
-    <span>{{$store.state.count}}</span>
-    <theme-picker></theme-picker>
-    <el-calendar>
-    </el-calendar>
-    
+    </el-select> -->
+    <div>换肤：<theme-picker></theme-picker></div>
+    <!-- <el-calendar>
+    </el-calendar> -->
+    <div>格式化日期：{{date| time }}</div>
+    <div>自动聚焦<input type="text" v-focus/></div>
+    <div v-copy>复制：5555555555sssss</div>
+     <el-button type="primary" @click="test" v-btnpr.dis>鉴权按钮</el-button>
   </div>
 </template>
 
@@ -48,7 +50,9 @@
           value: '002',
           label: '墨绿'
         }],
-        template: ''
+        template: '',
+        date:'1588832774000',
+        copy:'要复制的内容'
       }
     },
     created() {
@@ -100,6 +104,9 @@
         // skin.setCss(template);
         // skin.getCss();
         // this._setCss(template);
+      },
+      test(){
+        alert('测试')
       }
     }
   };
@@ -126,5 +133,8 @@
     width: 100%;
     height: 80px;
     // background-color: #3b76b9
+  }
+  input:focus{
+        background: rebeccapurple;
   }
 </style>
